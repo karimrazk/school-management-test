@@ -29,7 +29,7 @@ export default class Login extends Component {
               <Button
                 title="Se connecter"
                 onPress={() => {
-                  this.props.navigation.navigate("AjouterAdmin");
+                  this.props.navigation.navigate("classes");
                 }}
               />
             </View>

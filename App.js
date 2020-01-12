@@ -1,37 +1,36 @@
-
-import { createAppContainer } from 'react-navigation';
+ import { createAppContainer,createSwitchNavigator } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 
+import { createBottomTabNavigator } from 'react-navigation-tabs';
 
-import Login from './src/login';
-import Admin from './src/Screens/Admin/AdminScreen';
-import AjouterAdmin from './src/Screens/Admin/AjouterAdmin';
-import Classes from './src/Screens/Admin/ClassesScreen';
+import login from './src/login';
+import admin from './src/Screens/Admin/AdminScreen';
+import addAdmin from './src/Screens/Admin/AddAdmin';
+import classes from './src/Screens/Admin/ClassesScreen';
 
-const AppNavigator_Ajouter = createStackNavigator({
-  Admin: {
-    screen: Admin
+
+const AdminNavBar = createBottomTabNavigator(
+{ 
+  administrator: admin ,
+  classes: classes, 
+  Student: classes,  
+},
+{
+  initialRouteName: 'administrator',
+
+});
+const AppNavigator = createStackNavigator(
+  {
+    login : login,
+    Admin : AdminNavBar,
   },
-  AjouterAdmin: {
-    screen: AjouterAdmin
+  {
+      initialRouteName: 'login',
+      headerMode : "none"
   }
-  
-},{ 
-  headerMode: 'none',
-}
-);
-const AppNavigator_Admin = createStackNavigator({
-  Login: {
-    screen: Login
-  }, 
-  Admin: {
-    screen: Admin
-  }
-  },{ 
-  headerMode: 'none',
-}
 );
 
-export default createAppContainer(AppNavigator_Admin,AppNavigator_Ajouter);  
+
+
+export default createAppContainer(AppNavigator );  
  
-
