@@ -10,14 +10,14 @@ import {
 import { Text, Button } from "react-native-elements"; 
 
 
-export default function Admin() {
+export default function Admin() {  
   return (
     <View style={styles.container}>
       <View style={styles.body}>
         <Text style={{ alignContent: "center", marginBottom: 30 }} h3>
           Classes
         </Text>
-        <Text>Listes des Classes</Text>
+        <Text>Listes des Classes </Text>
         <View style={{ width: "100%", flex: 4  }}>
           <View
             style={{
@@ -51,7 +51,7 @@ export default function Admin() {
             />
           </View>
           <View style={{ flex: 1, paddingTop: 10 }}>
-            <Button title="Ajouter Administrateur"   />
+            <Button title="Ajouter Administrateur"/>
           </View>
         </View>
       </View>
@@ -63,16 +63,26 @@ export default function Admin() {
           justifyContent: "center"
         }}
       >
-        <TouchableOpacity style={styles.Active}>
-          <Text style={styles.textActive}>Administrateurs</Text>
+
+
+{/*         
+        <TouchableOpacity style={styles.fo}  onPress={() => {
+                  this.props.navigation.navigate('ClassesNavigator');
+                }}>
+          <Text style={styles.text}>Administrateurs</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.fo, styles.fo}>
-          <Text style={styles.text }>Classes</Text>
+        
+        <TouchableOpacity style={styles.Active}  onPress={() => {
+                  this.props.navigation.navigate('classes');
+                }}>
+          <Text style={styles.textActive }>Classes</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.fo}>
+        <TouchableOpacity style={styles.fo}  onPress={() => {
+                  this.props.navigation.navigate("login");
+                }}>
           <Text style={styles.text}>Etudiants</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
     </View>
   );

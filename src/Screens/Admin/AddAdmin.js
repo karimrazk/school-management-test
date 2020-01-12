@@ -7,8 +7,7 @@ import {
   TouchableOpacity, 
 } from "react-native";
 
-import { Text, Button } from "react-native-elements"; 
-
+import { Text, Button } from "react-native-elements";  
 
 export default function Admin() {
   return (

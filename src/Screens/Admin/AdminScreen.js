@@ -9,6 +9,10 @@ import {
 
 import { Text, Button } from "react-native-elements";
 
+
+import { createAppContainer , createSwitchNavigator } from 'react-navigation'; 
+
+
 export default class Login extends Component {
   render() {
     return (
