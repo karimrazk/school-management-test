@@ -1,25 +1,29 @@
  import { createAppContainer,createSwitchNavigator } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
-
+import { createDrawerNavigator } from 'react-navigation-drawer';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 
 import login from './src/login';
-import admin from './src/Screens/Admin/AdminScreen';
-import addAdmin from './src/Screens/Admin/AddAdmin';
-import classes from './src/Screens/Admin/ClassesScreen';
 
+import administrator from './src/Screens/Admin/adminScreen';
+import student from './src/Screens/Admin/studentScreen';
+import addAdmin from './src/Screens/Admin/addAdmin';
+
+import classes from './src/Screens/Admin/classesScreen';
+ 
 
 const AdminNavBar = createBottomTabNavigator(
 { 
-  administrator: admin ,
+  administrator: { screen : administrator}, 
   classes: classes, 
-  Student: classes,  
+  student: student,  
+
 },
-{
-  initialRouteName: 'administrator',
+{ 
+  initialRouteName: 'student',
 
 });
-const AppNavigator = createStackNavigator(
+const AppNavigator = createSwitchNavigator(
   {
     login : login,
     Admin : AdminNavBar,
