@@ -3,12 +3,39 @@ import {
   View,
   StyleSheet, 
   SafeAreaView, 
+  Alert
 } from "react-native";
 
 import { Text, Button,Input } from "react-native-elements"; 
+ 
+import   {myDatabase} from './../../configdb/configdb';
 
+
+let addItem = item => {
+  myDatabase.ref('/admins/admin').push({ 
+    name: item
+  });
+}; 
 
 export default class AddAdmin extends Component {
+  constructor(props) {
+    super(props);  
+    this.state = {  name: ''}
+  }
+ 
+  
+    handleChange = e => {
+      this.setState({
+        name: e.nativeEvent.text
+      });
+    };
+    s
+    handleSubmit = () => {
+      addItem(this.state.name);
+      Alert.alert('Item saved successfully');
+      this.props.navigation.navigate("Administrateurs");
+    };
+
   render() {
     return ( 
       <View style={styles.container}>
@@ -25,13 +52,11 @@ export default class AddAdmin extends Component {
           /> 
           <View style={{ flex: 1, paddingTop: 10 }}>
           <SafeAreaView style ={{paddingBottom : 20}}>
-          <Input placeholder=" UserAdmin"/>
+          <Input placeholder=" UserAdmin" onChange={this.handleChange} />
             </SafeAreaView>  
             <Button title="Ajouter" 
-             onPress={() => {
-              this.props.navigation.navigate("Administrateurs");
-            }}
-            />
+             onPress={this.handleSubmit}
+             />
           </View>
         </View>
       </View>

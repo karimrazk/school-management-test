@@ -10,7 +10,8 @@ import adminScreen from './src/screens/admin/adminScreen';
 import studentScreen from './src/screens/admin/studentScreen';
 import classesScreen from './src/screens/admin/classesScreen';
 import addAdmin from './src/screens/admin/addAdmin';
-import addStudent from "./src/screens/admin/addStudent";
+import profil from "./src/screens/admin/profil";
+import updateProfil from "./src/screens/admin/updateProfil";
 import addClass from "./src/screens/admin/addClass";
  
 
@@ -45,7 +46,7 @@ const AddclassNavigate = createStackNavigator(
       screen: addClass,  
       navigationOptions :
       {
-        headerTitle : false,
+        headerTitle : "",
       }
   
     },
@@ -62,18 +63,18 @@ const AddclassNavigate = createStackNavigator(
   }
   );
   
-const AddStudentNavigate = createStackNavigator(
-  {
-    addStudent: {
-      screen: addStudent,  
+const udPadteProfilNavigate = createStackNavigator(
+  { 
+    updateProfil: {
+      screen: updateProfil,  
       navigationOptions :
       {
-        headerTitle : false,
+        headerTitle : "",
       }
   
     },
-    studentScreen: {
-      screen: studentScreen, 
+    profil: {
+      screen: profil, 
       navigationOptions :
       {
         headerShown : false,
@@ -81,7 +82,7 @@ const AddStudentNavigate = createStackNavigator(
     }
   },
   { 
-    initialRouteName : "studentScreen",
+    initialRouteName : "profil",
   }
   );
 
@@ -93,8 +94,8 @@ const AdminNavBar = createBottomTabNavigator(
     Classes: {
       screen: AddclassNavigate,
     },
-    Etudiants: {
-      screen: AddStudentNavigate
+    Profile: {
+      screen: udPadteProfilNavigate,
     }, 
   },
   {

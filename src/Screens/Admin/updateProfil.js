@@ -4,33 +4,30 @@ import firebase from 'firebase'
 
 import { Input, Icon, Button, Text } from "react-native-elements";
  
-import Header from "./Header";
 
-export default class Login extends Component {
+
+export default class updateProfil extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Header />
-
+    
         <View style={styles.body}>
           <Text style={{ alignContent: "center" }} h3>
-            LOGIN
+            Profil
           </Text>
           <Input
-            placeholder=" UserName"
-            rightIcon={<Icon name="ios-person" type="ionicon" color="#000" />}
+          value ={"karim"}
+            placeholder="Name "
+            rightIcon={<Icon name="ios-person" type="ionicon" color="#000"
+            disabled />}
           />
-          <Input
-            secureTextEntry={true}
-            placeholder=" Password"
-            rightIcon={<Icon name="ios-lock" type="ionicon" color="#000" />}
-          />
+          
           <View style={{ flexDirection: "row", marginTop: 40 }}>
             <View style={{ flex: 1 }}>
               <Button
-                title="Se connecter"
+                title="update"
                 onPress={() => {
-                  this.props.navigation.navigate("adminScreen");
+                  this.props.navigation.navigate("Profile");
                 }}
               />
             </View>
