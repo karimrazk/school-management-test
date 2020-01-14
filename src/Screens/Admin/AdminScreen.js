@@ -10,13 +10,31 @@ import {
 
 import { Text, Button } from "react-native-elements";
 
+import { myDatabase } from "./../../configdb/configdb";
+import ItemComponent from "./ItemComponent";
+
+let adminsRef = myDatabase.ref("/admins/admin");
+
 export default class screenAdmin extends Component {
+  state = {
+    items: []
+  };
+
+  componentDidMount() {
+    adminsRef.on("value", snapshot => {
+      let data = snapshot.val();
+      let items = Object.values(data);
+
+      this.setState({ items });
+    });
+  }
+
   render() {
     return (
       <View style={styles.container}>
         <View style={styles.body}>
           <Text style={{ alignContent: "center", marginBottom: 30 }} h4>
-            Administrateur
+            Administrateur 
           </Text>
           <Text>Listes des Administrateurs </Text>
           <View style={{ width: "100%", flex: 4 }}>
@@ -27,25 +45,13 @@ export default class screenAdmin extends Component {
               }}
             />
             <View style={{ flex: 5 }}>
-              <FlatList
-                data={[
-                  { key: "A1" },
-                  { key: "A2" },
-                  { key: "A3" },
-                  { key: "A4" },
-                  { key: "A11" },
-                  { key: "A12" },
-                  { key: "A13" }
-                ]}
-                renderItem={({ item }) => {
-                  return (
-                    <TouchableOpacity onPress={() => Alert.alert("Clicked !")}>
-                      <Text style={styles.item}> {item.key} </Text>
-                    </TouchableOpacity>
-                  );
-                }}
-              />
+              {this.state.items.length > 0 ? (
+                <ItemComponent items={this.state.items} />
+              ) : (
+                <Text>No one </Text>
+              )}
             </View>
+
             <View style={{ flex: 1, paddingTop: 10 }}>
               <Button
                 title="Ajouter"

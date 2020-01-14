@@ -4,34 +4,31 @@ import firebase from 'firebase'
 
 import { Input, Icon, Button, Text } from "react-native-elements";
  
-import Header from "./Header";
+export default class Profil extends Component {
 
-export default class Login extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Header />
+    
 
         <View style={styles.body}>
-          <Text style={{ alignContent: "center" }} h3>
-            LOGIN
+          <Text style={{  alignSelf: "center" }} h3>
+            Profile
           </Text>
-          <Input
-            placeholder=" UserName"
-            rightIcon={<Icon name="ios-person" type="ionicon" color="#000" />}
-          />
-          <Input
-            secureTextEntry={true}
-            placeholder=" Password"
-            rightIcon={<Icon name="ios-lock" type="ionicon" color="#000" />}
-          />
+           <View style= {{flex :1, marginTop : 20  }}> 
+           <Text style = {{fontSize : 18}}>
+            Name : Karim Razouk {'\n'} 
+          </Text> 
+
+          </View>
+         
           <View style={{ flexDirection: "row", marginTop: 40 }}>
             <View style={{ flex: 1 }}>
               <Button
-                title="Se connecter"
+                title="update"
                 onPress={() => {
-                  this.props.navigation.navigate("adminScreen");
-                }}
+                  this.props.navigation.navigate("updateProfil");
+                }} 
               />
             </View>
           </View>
@@ -51,7 +48,6 @@ const styles = StyleSheet.create({
     paddingTop: 80,
     margin: 20,
     backgroundColor: "#f9f7f7",
-    display: "flex",
-    alignItems: "center"
+    display: "flex", 
   }
 });

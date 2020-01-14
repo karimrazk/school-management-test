@@ -10,6 +10,10 @@ import {
 import { Text, Button } from "react-native-elements";
 
 export default class StudentScreen extends Component {
+  constructor(props) {
+    super(props);
+  }
+ 
   render() {
     return (
       <View style={styles.container}>
